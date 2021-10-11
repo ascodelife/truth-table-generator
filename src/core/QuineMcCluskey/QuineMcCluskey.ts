@@ -1,4 +1,5 @@
 /* eslint-disable no-restricted-syntax */
+import ICostomSymbol from '~/types/costomSymbol';
 import Minterm from './Minterm';
 import { decToBin, valueIn } from './utils';
 
@@ -18,12 +19,15 @@ export default class QuineMcCluskey {
 
   func: string;
 
+  costomSymbol: ICostomSymbol;
+
   /**
    * Creates a new QuineMcCluskey object to process the Quine-Mccluskey Algorithm
    */
   constructor(
     variables: string,
     values: number[],
+    costomSymbol: ICostomSymbol,
     dontCares: number[] = [],
     isMaxterm = false,
   ) {
@@ -34,6 +38,7 @@ export default class QuineMcCluskey {
     this.allValues.sort();
     this.dontCares = dontCares;
     this.isMaxterm = isMaxterm;
+    this.costomSymbol = costomSymbol;
     this.func = this.getFunction() || '';
   }
 
@@ -342,7 +347,7 @@ export default class QuineMcCluskey {
       // Iterate through all the bits in the implicants value
       for (let j = 0; j < implicant.getValue().length; j += 1) {
         if (implicant.getValue().charAt(j) === (this.isMaxterm ? '1' : '0')) {
-          result += '¬';
+          result += this.costomSymbol.not;
         }
         if (implicant.getValue().charAt(j) !== '-') {
           result += this.variables[j];
@@ -357,7 +362,7 @@ export default class QuineMcCluskey {
             < implicant.getValue().length - j - 1
           && implicant.getValue().charAt(j) !== '-'
         ) {
-          result += this.isMaxterm ? ' ∨ ' : ' ∧ ';
+          result += this.isMaxterm ? ` ${this.costomSymbol.disjunction} ` : ` ${this.costomSymbol.disjunction} `;
         }
       }
 
@@ -371,7 +376,7 @@ export default class QuineMcCluskey {
 
       // Combine minterms with an OR operator
       if (i < primeImplicants.length - 1) {
-        result += this.isMaxterm ? ' ∧ ' : ' ∨ ';
+        result += this.isMaxterm ? ` ${this.costomSymbol.conjunction} ` : ` ${this.costomSymbol.disjunction} `;
       }
     }
 
