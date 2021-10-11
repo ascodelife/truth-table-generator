@@ -5,10 +5,13 @@
   >
     <n-page-header
       title="真值表生成器"
-      subtitle="by. ouuan"
+      subtitle="原作者 by. ouuan | 修改版 by. ascodelife"
     />
     <n-a href="https://github.com/ouuan/truth-table-generator">
-      Source Code @ GitHub
+      原仓库 Source Code @ GitHub
+    </n-a>
+    <n-a href="https://github.com/ascodelife/truth-table-generator">
+      修改版仓库 Source Code @ GitHub
     </n-a>
     <n-card title="输入">
       <n-p>
