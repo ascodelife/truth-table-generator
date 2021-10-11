@@ -44,7 +44,7 @@ export default function buildAst(expression: string): {
       .replace(/（/g, '(')
       .replace(/）/g, ')');
 
-    if (/[^A-Z()!&|><=↑^↓]/.test(exp)) return null;
+    if (/[^A-Za-z()!&|><=↑^↓]/.test(exp)) return null;
 
     const stacks: (AstNode | '&' | '↑' | '^' | '↓' | '|' | '>' | '<' | '=' | '!')[][] = [[]];
 
