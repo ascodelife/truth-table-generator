@@ -1,8 +1,15 @@
-# Truth Table Generator
+# Truth Table Generator 真值表生成器
 
-离散数学 Open Project。
+[Demo](https://ascodelife.github.io/truth-table-generator)
 
-[Demo](https://ouuan.github.io/truth-table-generator)
+
+源代码参考自[ouuan/truth-table-generator](https://github.com/ouuan/truth-table-generator)  
+q-m算法参考自[quine-mccluskey-js](https://www.npmjs.com/package/quine-mccluskey-js)
+
+增强功能：
+1. 增加最简范式（已补充到原仓库[ouuan/truth-table-generator](https://github.com/ouuan/truth-table-generator) ）。
+2. 范式展示自定义逻辑符号，方便兼容不同符号体系。
+
 
 ```bash
 yarn
