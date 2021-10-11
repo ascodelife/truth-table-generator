@@ -7,7 +7,7 @@
     >
       主合取范式 =
       <span v-if="pnf.pcnfSub.length">
-        ⋀
+        π
         <sub>{{ pnf.pcnfSub }}</sub> =
       </span>
       {{ pnf.pcnf }}
@@ -21,7 +21,7 @@
     >
       主析取范式 =
       <span v-if="pnf.pdnfSub.length">
-        ⋁
+        Σ
         <sub>{{ pnf.pdnfSub }}</sub> =
       </span>
       {{ pnf.pdnf }}
