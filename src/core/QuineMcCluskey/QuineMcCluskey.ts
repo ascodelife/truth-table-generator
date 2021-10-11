@@ -362,7 +362,7 @@ export default class QuineMcCluskey {
             < implicant.getValue().length - j - 1
           && implicant.getValue().charAt(j) !== '-'
         ) {
-          result += this.isMaxterm ? ` ${this.costomSymbol.disjunction} ` : ` ${this.costomSymbol.disjunction} `;
+          result += this.isMaxterm ? ` ${this.costomSymbol.disjunction} ` : ` ${this.costomSymbol.conjunction} `;
         }
       }
 
